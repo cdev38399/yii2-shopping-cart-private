@@ -1,6 +1,6 @@
 <?php
 
-namespace yz\shoppingcart;
+namespace yz\shoppingcartprivate;
 use yii\base\Event;
 
 
