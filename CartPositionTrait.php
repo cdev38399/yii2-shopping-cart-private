@@ -14,6 +14,7 @@ use yii\base\Object;
 trait CartPositionTrait
 {
     protected $_quantity;
+    protected $_tax;
 
     public function getQuantity()
     {
@@ -23,6 +24,16 @@ trait CartPositionTrait
     public function setQuantity($quantity)
     {
         $this->_quantity = $quantity;
+    }
+
+    public function getTax()
+    {
+        return $this->_tax;
+    }
+
+    public function setTax($tax)
+    {
+        $this->_tax = $tax;
     }
 
     /**
