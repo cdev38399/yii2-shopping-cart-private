@@ -41,4 +41,14 @@ interface CartPositionInterface
      * @return int
      */
     public function getQuantity();
+        /**
+     * @param int $quantity
+     */
+    public function setTax($taxy);
+
+    /**
+     * @return int
+     */
+    public function getTax();
+
 } 
