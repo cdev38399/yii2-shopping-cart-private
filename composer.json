@@ -1,5 +1,5 @@
 {
-    "name": "omnilight/yii2-shopping-cart",
+    "name": "cdev38399/yii2-shopping-cart-private",
     "description": "Yii2 extension that adds shopping cart functions",
     "keywords": ["yii", "shopping cart"],
     "minimum-stability": "dev",
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "yz\\shoppingcart\\": ""
+            "yz\\shoppingcartprivate\\": ""
         }
     }
 }
