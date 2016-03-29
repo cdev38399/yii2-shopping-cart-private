@@ -18,7 +18,7 @@ use yii\web\Session;
  * @property string $hash Returns hash (md5) of the current cart, that is uniq to the current combination
  * of positions, quantities and costs
  * @property string $serialized Get/set serialized content of the cart
- * @package \yz\shoppingcart
+ * @package \yz\shoppingcartprivate
  */
 class ShoppingCart extends Component
 {
@@ -101,6 +101,8 @@ class ShoppingCart extends Component
             $position->setQuantity($quantity);
             $this->_positions[$position->getId()] = $position;
         }
+        $this->_positions[$position->getId()]->setTax($this->_positions[$position->getId()]->getTax());
+		
         $this->trigger(self::EVENT_POSITION_PUT, new CartActionEvent([
             'action' => CartActionEvent::ACTION_POSITION_PUT,
             'position' => $this->_positions[$position->getId()],
@@ -260,21 +262,23 @@ class ShoppingCart extends Component
 
     /**
      * Return full cart cost as a sum of the individual positions costs
-     * @param $withDiscount
+     * @param $withDiscount, $withTax
      * @return int
      */
     public function getCost($withDiscount = false)
     {
         $cost = 0;
         foreach ($this->_positions as $position) {
-            $cost += $position->getCost($withDiscount);
+            $cost += $position->getCost($withDiscount) ;
         }
         $costEvent = new CostCalculationEvent([
             'baseCost' => $cost,
         ]);
         $this->trigger(self::EVENT_COST_CALCULATION, $costEvent);
+
         if ($withDiscount)
             $cost = max(0, $cost - $costEvent->discountValue);
+
         return $cost;
     }
 

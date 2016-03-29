@@ -9,7 +9,7 @@ namespace yz\shoppingcartprivate;
  * @property int $cost
  * @property string $id
  * @property int $quantity
- * @package yz\shoppingcart
+ * @package yz\shoppingcartprivate
  */
 interface CartPositionInterface
 {
@@ -42,12 +42,12 @@ interface CartPositionInterface
      */
     public function getQuantity();
         /**
-     * @param int $quantity
+     * @param float $tax
      */
     public function setTax($taxy);
 
     /**
-     * @return int
+     * @return float
      */
     public function getTax();
 

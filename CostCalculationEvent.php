@@ -7,7 +7,7 @@ use yii\base\Event;
 
 /**
  * Class CostCalculationEvent
- * @package \yz\shoppingcart
+ * @package \yz\shoppingcartprivate
  */
 class CostCalculationEvent extends Event
 {

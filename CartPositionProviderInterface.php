@@ -6,7 +6,7 @@ namespace yz\shoppingcartprivate;
 /**
  * Interface CartPositionProviderInterface
  * @property CartPositionInterface $cartPosition
- * @package yz\shoppingcart
+ * @package \yz\shoppingcartprivate
  */
 interface CartPositionProviderInterface
 {

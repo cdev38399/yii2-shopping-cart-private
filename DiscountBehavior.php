@@ -7,7 +7,7 @@ use yii\base\Behavior;
 
 /**
  * Class DiscountBehavior
- * @package \yz\shoppingcart
+ * @package \yz\shoppingcartprivate
  */
 class DiscountBehavior extends Behavior
 {

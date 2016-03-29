@@ -9,7 +9,7 @@ use yii\base\Object;
  * Trait CartPositionTrait
  * @property int $quantity Returns quantity of cart position
  * @property int $cost Returns cost of cart position. Default value is 'price * quantity'
- * @package yz\shoppingcart
+ * @package \yz\shoppingcartprivate
  */
 trait CartPositionTrait
 {
@@ -45,13 +45,16 @@ trait CartPositionTrait
     {
         /** @var Component|CartPositionInterface|self $this */
         $cost = $this->getQuantity() * $this->getPrice();
+		$cost = $cost + ($this->getQuantity() * $this->getPrice() * $this->getTax());
         $costEvent = new CostCalculationEvent([
             'baseCost' => $cost,
         ]);
         if ($this instanceof Component)
             $this->trigger(CartPositionInterface::EVENT_COST_CALCULATION, $costEvent);
+
         if ($withDiscount)
             $cost = max(0, $cost - $costEvent->discountValue);
+
         return $cost;
     }
 } 
