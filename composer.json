@@ -5,8 +5,7 @@
     "minimum-stability": "dev",
     "authors": [
         {
-            "name": "Pavel Agalecky",
-            "email": "pavel.agalecky@gmail.com"
+            "name": "Cdev"
         }
     ],
     "type": "yii2-extension",
